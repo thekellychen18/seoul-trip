@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秋風首爾漫步 母女隨身旅遊手冊</title>
+  <style>
+    /* Reset & Base Styling */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #FAF8F5;
+      color: #2C2A29;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      padding-bottom: 50px;
+    }
+    
+    /* Sticky Header & Nav */
+    header {
+      background: #FAF8F5;
+      border-bottom: 1px solid #E8E2D8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .header-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-icon {
+      background: #A85D38;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .brand-title { font-size: 15px; font-weight: bold; color: #2C2A29; letter-spacing: 0.5px; }
+    .brand-sub { font-size: 11px; color: #736C66; }
+    .print-btn {
+      background: #FFFFFF;
+      border: 1px solid #E8E2D8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #A85D38;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Navigation Tabs */
+    nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      border-top: 1px solid #E8E2D8;
+      background: #FAF8F5;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    
+    .tab-btn {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #736C66;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      color: #A85D38;
+      border-bottom-color: #A85D38;
+      font-weight: bold;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 900px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+
+    /* Card Layout */
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #E8E2D8;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .hero-card {
+      background: linear-gradient(135deg, #F3EDE2 0%, #FAF8F5 100%);
+      border: 1px solid #E8E2D8;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #A85D38;
+      color: white;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .badge-sub {
+      display: inline-block;
+      background: #E8E2D8;
+      color: #A85D38;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      margin-left: 4px;
+    }
+
+    h2 { font-size: 19px; font-weight: bold; margin-bottom: 8px; color: #2C2A29; }
+    h3 { font-size: 16px; font-weight: bold; margin-bottom: 12px; color: #A85D38; display: flex; align-items: center; justify-content: space-between; }
+    h4 { font-size: 14px; font-weight: bold; color: #2C2A29; margin-top: 14px; margin-bottom: 6px; }
+    p, li { font-size: 13px; color: #4A4643; line-height: 1.6; }
+    ul, ol { padding-left: 18px; margin-top: 4px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    /* Tables */
+    .table-container { overflow-x: auto; margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+    th { background: #F3EDE2; padding: 10px; color: #2C2A29; font-weight: bold; border-bottom: 1px solid #E8E2D8; white-space: nowrap; }
+    td { padding: 10px; border-bottom: 1px solid #E8E2D8; color: #555; vertical-align: top; }
+
+    /* Timeline Items */
+    .timeline-item { display: flex; gap: 12px; margin-bottom: 14px; border-left: 2px solid #F3EDE2; padding-left: 12px; }
+    .time-tag { font-weight: bold; color: #A85D38; min-width: 85px; font-size: 12px; flex-shrink: 0; }
+    
+    /* Interactive Buttons & Badges */
+    .big-card-btn {
+      background: #A85D38;
+      color: white;
+      border: none;
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .big-card-btn:hover { background: #8C4B2B; }
+
+    .filter-btn {
+      background: white;
+      border: 1px solid #E8E2D8;
+      color: #736C66;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .filter-btn.active {
+      background: #A85D38;
+      color: white;
+      border-color: #A85D38;
+      font-weight: bold;
+    }
+
+    /* Modal Overlay & Big Card */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-card {
+      background: white;
+      border: 3px solid #A85D38;
+      border-radius: 20px;
+      padding: 24px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .modal-title { font-size: 16px; font-weight: bold; color: #736C66; }
+    .modal-kr { font-size: 26px; font-weight: 800; color: #2C2A29; margin: 14px 0; line-height: 1.3; }
+    .modal-addr { font-size: 12px; background: #F3EDE2; padding: 10px; border-radius: 8px; color: #555; margin-bottom: 16px; word-break: break-all; }
+    .close-modal-btn {
+      background: #2C2A29;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Tab Content Show/Hide */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Highlight Box */
+    .tip-box {
+      background: #FFF9F2;
+      border-left: 4px solid #A85D38;
+      padding: 10px 14px;
+      margin: 10px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 12px;
+    }
+
+    details > summary { font-weight: bold; color: #A85D38; cursor: pointer; font-size: 15px; }
+    .ql { display:inline-block; margin:4px 8px 0 0; padding:4px 12px; border:1px solid #E8E2D8; border-radius:14px; font-size:12px; color:#A85D38; text-decoration:none; font-weight:bold; }
+    @media print { details { display:block; } }
+    @media print {
+      header, nav, .print-btn { display: none !important; }
+      .tab-content { display: block !important; margin-bottom: 30px; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">🍁</div>
+        <div>
+          <div class="brand-title">SEOUL AUTUMN WALK</div>
+          <div class="brand-sub">2026.11.19 － 11.23 ｜ 母女隨身旅遊手冊</div>
+        </div>
+      </div>
+      <button onclick="window.print()" class="print-btn">🖨️ 列印/存PDF</button>
+    </div>
+
+    <!-- TABS NAV -->
+    <nav>
+      <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn active">📍 概覽與備忘</button>
+      <button onclick="switchTab('ses')" id="tab-ses" class="tab-btn">⚡ T2通關與交通</button>
+      <button onclick="switchTab('itinerary')" id="tab-itinerary" class="tab-btn">🗓️ 5日詳細散策</button>
+      <button onclick="switchTab('food')" id="tab-food" class="tab-btn">🍲 美食圖鑑</button>
+      <button onclick="switchTab('shopping')" id="tab-shopping" class="tab-btn">🛍️ 購物地圖</button>
+      <button onclick="switchTab('korean')" id="tab-korean" class="tab-btn">🚕 運將大字卡</button>
+      <button onclick="switchTab('quick')" id="tab-quick" class="tab-btn">📞 速查</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- SECTION 1: OVERVIEW -->
+    <section id="section-overview" class="tab-content active">
+      <div class="card hero-card">
+        <span class="badge">Mother & Daughter Walk</span>
+        <span class="badge-sub">3 人彈性計程車分攤</span>
+        <h2>秋風微醺 ‧ 母女首爾漫步隨身手冊</h2>
+        <p>「在秋天，首爾像是一首緩緩展開的詩。」踏著金黃銀杏與紅葉，尋訪古宮石牆、梨大歐風校園、延南洞林蔭道、質感韓屋茶室與暖心美食。包含仁川 T2 快速通關、去程機場接送直達飯店、回程 6015 機場巴士直達、每日慢步調行程與 20+ 景點運將大字卡。</p>
+        <p style="margin-top: 10px; font-weight: bold; color: #2C2A29;">
+          👥 旅程成員：3 人（極適合彈性 Uber 共乘） ｜ 📅 2026.11.19 - 11.23 ｜ 🏨 住宿：ZIP1972 (連住4晚)
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>✈️ 航班資訊（中華航空）</h3>
+          <p><b>去程 (11/19 四)：</b>CI160 ｜ 07:50 桃園 T1 ➔ 11:20 仁川 T2</p>
+          <p style="font-size: 11px; color: #A85D38;">💡 抵達 T2 入境審查區現場申辦 SeS 快速通關（網友回報台灣旅客可能由工作人員直接指引辦理，詳見「通關」分頁）</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>回程 (11/23 一)：</b>CI163 ｜ 20:15 仁川 T2 ➔ 22:15 桃園 T1</p>
+          <p style="font-size: 11px; color: #A85D38;">💡 最晚 16:00 在乙支路4街．國都飯店站搭乘 6015 巴士直達 T2 (車程約 60-90 分鐘)</p>
+        </div>
+
+        <div class="card">
+          <h3>🏨 飯店資訊 (連住 4 晚)</h3>
+          <p><b>ZIP1972 near Euljiro &amp; Myeong</b>（三人房，Booking.com）</p>
+          <p style="font-size: 12px; color: #736C66;">ZIP1972 · 중구 주교동 122-3 2층</p>
+          <p style="margin-top: 6px;">📍 <b>地址：</b>중구 주교동 122-3 2층, 中區, 04546 首爾, 韓國（無電梯）<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Zip%201972%20Hostel&amp;query_place_id=ChIJuRozT5CjfDURclFGxD8kR0w" target="_blank" rel="noopener" class="ql">Google 地圖</a><a href="https://map.naver.com/p/search/Zip1972%20Hostel" target="_blank" rel="noopener" class="ql">Naver 地圖</a></p>
+          <p>🚌 <b>回程機場巴士：</b>步行約 4 分鐘（268 公尺，無階梯）到「乙支路4街．國都飯店」公車站（을지로4가 베스트웨스턴 프리미어 호텔 국도，站號 02163）搭 6015 機場巴士（站牌在國都飯店旁）。<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Kukdo%20Seoul" target="_blank" rel="noopener" class="ql">站牌 Google</a><a href="https://map.naver.com/p/search/%EA%B5%AD%EB%8F%84%ED%98%B8%ED%85%94%20%EC%9D%84%EC%A7%80%EB%A1%9C" target="_blank" rel="noopener" class="ql">站牌 Naver</a><br>🕒 入住 15:00–23:30，退房 11:00 前；可寄放行李（D5 取行李前先與櫃檯確認時間）。</p>
+          <p>🚇 <b>地鐵站：</b>乙支路4街站（2、5 號線）4 號出口，步行約 30 秒～1 分鐘。</p>
+        </div>
+      </div>
+
+      <div class="card" style="background:#FFFBF7;border-color:#E8D5C8;">
+        <h3>✅ 出發前待辦</h3>
+        <ul style="line-height:1.9;">
+          <li>抵達前 3 天內線上填 <b>電子入境卡 e-Arrival Card</b>（e-arrivalcard.go.kr；已辦 SeS 者免填，但首次辦理建議先填好備用）。若系統的台灣欄位仍有爭議，出發前查外交部最新說明，必要時改填紙本。</li>
+          <li>台灣旅客免申請 K-ETA 期限至 2026/12/31，本趟 11 月入境不受影響。</li>
+          <li><b>樂天超市優惠（D1 採買前）：</b>先辦樂天會員、先領 KKday 優惠券（滿 100,000 韓元折 6,000 韓元，可疊加會員價）。單筆退稅後滿 100,000 韓元可到服務台領購物袋。以上為網友經驗，條件請以官方頁面為準。</li>
+          <li><b>出發前在台灣先註冊 ICN SMARTPASS（每人）：</b>下載 App、註冊、NFC 掃護照、臉部辨識。11/23 回程拿到登機證後用 App 掃條碼綁定，即可刷臉出境；T2 專用出境通道為 1D、2C、2D（2026/5/28 起，網友整理的公告）。SeS 是入境＋出境審查用，SMARTPASS 只用於仁川出境。</li>
+          <li>核對飯店地址與所有大字卡地址（用 Naver / Google 地圖）。</li>
+          <li><b>提前預約／購票（6 項）：</b>
+            <ol style="padding-left:18px;margin-top:4px;">
+              <li><b>韓服租借（D3）：</b>已選「韓服 Star」(IG：<b>koreahanbokstar</b>，통인동 159 的 3 樓)，免費預約請用 IG 私訊小編。<b>已預約 11/21 09:30 體驗；</b>價格、訂金、歸還時間與髮型加購，請以店家訊息為準。</li>
+              <li><b>山清炭火花園（D2 晚餐）：</b>CatchTable Global 預約，預計 <b>10/26（一）17:00 韓國時間（台灣 16:00）</b>開放 11 月訂位，建議訂 D2（11/20）19:00 前後、3 位。開放時間各網誌說法略有不同（「最後一個週一」或「第 4 個週一」，今年都是 10/26），以 App 公告為準。</li>
+              <li><b>王妃家明洞第二店（D4 晚餐）：</b>用 CatchTable Global 或官網 wangbijib-restaurant.com 預約（官網上本店顯示 Not Available，所以改訂第二店）。</li>
+              <li><b>MEGAZOO 寵物展（D2）：</b>11/20–22，每日 09:00–18:00，至官網確認展館並先購票。</li>
+              <li><b>AQUAFIELD 汗蒸幕（D2）：</b>可在旅遊平台預購，比價後再買。</li>
+              <li><b>光化門城市觀光巴士夜景路線（D3，已訂 3 位成人）：</b>11/21 19:00 光化門出發，一天一班。<b>電子憑證不能直接上車，需先到光化門售票處換實體票</b>，D3 午餐後順路領取（週一休息，D3 是週六沒問題）。</li>
+            </ol>
+          </li>
+          <li>11/23 週一德壽宮休館，D5 已調整。賞楓接近尾聲，出發前一週再看預報。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🗺️ 5天4夜行程總覽</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>主要區域</th>
+                <th>精華動線規劃</th>
+                <th>重點美食與備案</th>
+                <th>交通</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>D1 (11/19 四)</b></td>
+                <td>仁川T2 ➔ 明洞換錢 ➔ 廣藏市場 ➔ 樂天超市／DDP</td>
+                <td>T2 辦 SeS 通關 ➔ 搭 6015 巴士 ➔ 明洞換錢 ➔ 廣藏市場選購冬被 ➔ 早點吃辣燉雞 ➔ 樂天超市採買退稅（或逛 DDP 商場）➔ 早點休息</td>
+                <td>鷄林食堂辣燉雞（備案：明洞一隻雞）、24H本故鄉韓牛、獵奇辣炒年糕</td>
+                <td>6015巴士 / 地鐵2號線2站 / 步行</td>
+              </tr>
+              <tr>
+                <td><b>D2 (11/20 五)</b></td>
+                <td>高陽 KINTEX ➔ AQUAFIELD ➔ 東大門</td>
+                <td>Isaac Toast 早餐 ➔ 寵物展 ➔ Starfield Goyang (AQUAFIELD 汗蒸幕 3hr) ➔ 厚切燒肉</td>
+                <td>Isaac Toast（乙支路4街站店）、山清炭火花園（備案：河南豬肉家、全州家烤魚）</td>
+                <td>Uber (3人合搭) / 地鐵3號➔2號線</td>
+              </tr>
+              <tr>
+                <td><b>D3 (11/21 六)</b></td>
+                <td>安國/景福宮 ➔ 光化門領票 ➔ 益善洞 ➔ 夜景巴士</td>
+                <td>London Bagel 早餐 ➔ 母女宮廷韓服賞楓寫真 ➔ 西村散步 ➔ 益善洞清水堂 ➔ Artist Bakery（買隔天早餐）➔ 牛肉湯飯 ➔ 19:00 光化門夜景巴士</td>
+                <td>London Bagel 貝果、Artist Bakery 可頌、土俗村蔘雞湯（備案：黃生家刀削麵）、이여곰탕牛肉湯飯（備案：三峯陶潭刀削麵）</td>
+                <td>地鐵2號➔3號線 / 5號線（光化門⇄鍾路3街／乙支路4街）/ 步行</td>
+              </tr>
+              <tr>
+                <td><b>D4 (11/22 日)</b></td>
+                <td>梨花女子大學 ➔ 延南洞林蔭道 ➔ 明洞</td>
+                <td>梨大歐風校園賞銀杏紅楓 ➔ 京義線林蔭道漫步 ➔ 延南洞/弘大選品爆買 ➔ 明洞旗艦店與韓牛大餐</td>
+                <td>육전국밥（備案：豚壽百、延南豬腳1987）、王妃家頂級韓牛</td>
+                <td>地鐵2號線 (乙支路4街 ⇄ 梨大 ⇄ 弘大 ⇄ 乙支路入口／明洞)</td>
+              </tr>
+              <tr>
+                <td><b>D5 (11/23 一)</b></td>
+                <td>南大門 ➔ 石牆路 ➔ 南山谷韓屋村 ➔ T2返台</td>
+                <td>南大門伴手禮/刀削麵 ➔ 石牆路賞楓（德壽宮週一休，不入宮）➔ 南山谷韓屋村 ➔ 15:30 回飯店取行李，16:00 前搭 6015 巴士返台</td>
+                <td>Isaac Toast、南大門刀削麵/蔬菜糖餅（備案：滿足五香豬腳）</td>
+                <td>地鐵2號線 / 6015巴士</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SES & BUS GUIDE -->
+    <section id="section-ses" class="tab-content">
+      <div class="card">
+        <h3>⚡ Smart Entry Service (SeS) 快速通關辦理指南</h3>
+        <div class="tip-box" style="margin-bottom:10px;"><b>📝 備註：SeS 與 ICN SMARTPASS 不一樣</b><br>
+        • <b>SeS（自動通關）：</b>出入境審查都能用，需本人到場登錄指紋與臉部，通過後護照會貼貼紙，效期同護照。<br>
+        • <b>ICN SMARTPASS：</b>只在仁川機場<b>出境</b>用的臉部辨識通行服務（T1、T2 都有），不用在入境時辦。<br>
+        • <b>入境怎麼辦：</b>網友 2025/11 在 T1 的經驗是，台灣旅客入境時會有工作人員引導去現場辦 SeS，辦完當次就能用，不用自己上樓。但這是個人經驗，不是官方保證：太早或太晚抵達可能沒有人引導，另有文章寫首次要先走人工通道、之後再登錄，各處說法不一。你們 D1 11:20 抵達，以現場指示為準；沒人引導就自己到 A／B 區 SeS 櫃檯。<br>
+        • <b>SMARTPASS 建議在台灣先註冊：</b>下載 ICN SMARTPASS App → 註冊帳號 → 用手機 NFC 掃護照晶片 → 臉部辨識。11/23 回程拿到登機證後，用 App 掃登機證條碼綁定，就能走專用通道刷臉出境（每趟都要重新綁當次登機證）。<br>
+        • <b>專用出境通道（你提供的公告截圖，自 2026/5/28 起）：</b>T2（你們 11/23 回程）是 <b>1D、2C、2D</b>；T1 是 5A、2B。你們搭 T2，請認「Smart Pass 專用出境通道」的 1D 或 2C／2D 標示。截圖是網友整理的公告，不是官方原文，出發當天以機場現場指標與 App 為準。<br>• 登錄截止時間等細節我沒查到，以 App 為準。</div>
+        <p><b>辦理地點（仁川機場 T2 航廈）：</b></p>
+        <ul>
+          <li><b>入境審查區：</b>落地後過海關前，於入境審查區 <b>A 區或 B 區櫃檯</b> 臨櫃辦理（即辦即用，辦完直接走 E-Gate 秒速通關）。</li>
+          <li><b>出境管制區外：</b>T2 航廈 2 樓政府綜合行政中心（07:00 - 19:00）。</li>
+        </ul>
+        <div class="tip-box">
+          <b>資格條件：</b>持中華民國晶片護照（效期 6 個月以上）、年滿 17 歲、無不良紀錄，<b>免費申辦</b>。
+        </div>
+        <p style="margin-top: 10px;"><b>三步驟流程：</b>遞交護照 ➔ 面向鏡頭拍照 ➔ 按壓雙手食指指紋（約 2 分鐘完成，效期與護照相同）。</p>
+      </div>
+
+      <div class="card" style="background:#F2F9FB;border-color:#BFE3EA;">
+        <h3 style="color:#1C8EA0;">🌃 光化門城市觀光巴士・夜景路線 (D3)</h3>
+        <ul>
+          <li><b>日期人數：</b>2026-11-21（六），成人 x3（KKday 訂單）</li>
+          <li><b>發車：</b>19:00（9/16–12/31 班次），一天一班，<b>18:30 開放上車</b></li>
+          <li><b>換票：</b>電子憑證不能直接乘車，須在光化門售票處換實體票，建議 D3 午餐後（約 13:15）先領好</li>
+          <li><b>換票處：</b>5 號線光化門站 6 號出口直走約 50 公尺（高麗亞那酒店前）；或 1、2 號線市廳站 3 號出口直走約 100 公尺（東和免稅店與朝鮮日報之間的新韓銀行前）</li>
+          <li><b>諮詢：</b>02-777-6090（週一休息；換票截止為當日發車前，建議提前 30 分鐘）</li>
+        </ul>
+        <div class="tip-box">訂單提醒：行程資訊可能更新，出發前再確認一次憑證與訂單通知。</div>
+      </div>
+
+      <div class="card" style="background:#F7F5EF;border-color:#E8E2D8;">
+        <h3>💳 要買氣候同行卡嗎？（結論：不用）</h3>
+        <ul>
+          <li><b>價格：</b>短期券 1 日 5,000、2 日 8,000、3 日 10,000、5 日 15,000 韓元，另加空卡 3,000 韓元；儲值通常只收韓元現金。</li>
+          <li><b>不能搭：</b>6015 機場巴士（去回程都不含）。<b>高陽（大化站／KINTEX）也不在短期券範圍內</b>（有旅遊資料指高陽等京畿道區域已排除；官方說法各處不一，請以站務中心為準），D2 去高陽請用 Uber 或 T-money。</li>
+          <li><b>本行程估算：</b>D1 搭機場接送、D2 多搭 Uber，地鐵很少；D3 約 5 趟、D4 約 4 趟、D5 約 2～3 趟。D3–D5 買 3 日券約省 4,000～5,000 韓元／人（已扣卡費），要多辦卡、還要先換錢，所以不建議。</li>
+          <li><b>改變條件：</b>若你們 D3–D5 幾乎全搭地鐵／公車、不搭計程車，才值得買 3 日券，從 D3 早上儲值。</li>
+          <li><b>日常使用：</b>用 T-money 即可（D1 SeS 通關時已規劃儲值）。</li>
+        </ul>
+      </div>
+
+      <div class="card" style="background: #FFFBF7; border-color: #E8D5C8;">
+        <h3 style="color: #A85D38;">🚌 仁川 T2 搭乘 6015 機場巴士指引（備案）</h3>
+    <p style="font-size: 12px; color: #736C66; margin-bottom: 6px;">💡 去程（D1）已安排機場接送，以下僅供接送臨時出狀況時備用；回程（D5）則是從國都飯店站搭 6015 到 T2。</p>
+        <ol style="padding-left: 20px; font-size: 13px; line-height: 1.8;">
+          <li><b>購票處：</b>出海關後前往 <b>T2 B1 樓層交通中心</b> 售票處購票（單程 17,000 韓元，可刷 T-money 卡或信用卡）。</li>
+          <li><b>候車月台：</b>前往 <b>T2 B1（地下1樓）乘車區，6015 在 28 號乘車口</b>（以現場電子看板為準，班距約 15-25 分鐘）。近期規定要先購票才能搭，建議先買好再排隊。</li>
+          <li><b>下車站別：</b>在「<b>乙支路4街．國都飯店 (02163)</b>」站下車，再步行約 4 分鐘到 ZIP1972（2 樓無電梯）。車程約 60-90 分鐘，以 T2 實際路況為準。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ITINERARY -->
+    <section id="section-itinerary" class="tab-content">
+      <div class="card">
+        <h3>🗓️ 5 Days 詳細慢步調行程規劃</h3>
+
+        <h4 style="color: #A85D38; border-bottom: 2px solid #F3EDE2; padding-bottom: 4px; margin-top: 10px;">DAY 1 ｜ 11/19 (四) 抵達首爾 ➔ 明洞換錢 ➔ 廣藏市場棉被 ➔ 暖胃辣燉雞 ➔ 樂天超市／DDP 逛街</h4>
+        <div class="timeline-item"><span class="time-tag">11:20-12:30</span><div><b>T2 入境與 SeS 通關：</b>抵達仁川 T2，申辦 SeS 快速通關，領取行李與儲值 T-money 卡。</div></div>
+        <div class="timeline-item"><span class="time-tag">12:30-14:00</span><div><b>🚐 機場接送直達飯店：</b>入境後依接送安排與司機會合，直接載到 ZIP1972 寄放行李（入住 15:00 起），不用拖著行李轉乘。<span style="color:#A85D38;">💡接送若已預付，不用在機場先換錢（機場匯率通常較差），下午到明洞再換就好。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">14:15-15:15</span><div><b>💱 明洞換錢（抵達後第一站）：</b>行李寄 ZIP1972 後，從乙支路4街站搭 2 號線 2 站到<b>乙支路入口站</b>（約 5 分鐘），再步行約 5～10 分鐘到明洞換錢所集中區（<b>大使館換錢所、大信、一品香</b>，近明洞站 5 號出口、中國大使館附近；用 Naver 搜「대사관 환전소」導航）。台幣可直接換，先問 2～3 家「同樣金額最後拿到多少韓元」再決定；<b>務必帶護照</b>。大使館換錢所一般 09:00–21:30（各來源營業時間略有出入，14:00 後去都在營業內）。<span style="color:#A85D38;">💡換完回程搭同路線回乙支路4街站，直接接廣藏市場。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">15:30-16:40</span><div><b>廣藏市場選購四季被：</b>從 ZIP1972 步行約 4～5 分鐘（約 250 公尺）到市場，<b>優先直奔棉被店 (148/158號店)</b>，莫代爾四季被免費抽真空打包。<span style="color:#A85D38;">換錢後時間縮短，小吃（綠豆煎餅、麻藥飯捲）只買一樣就好，晚餐吃辣燉雞。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">16:45-17:45</span><div><b>早點晚餐：鷄林食堂（계림식당）：</b>鐘路三街，從廣藏市場步行約 7～10 分鐘（約 450 公尺），從 ZIP1972 步行約 6 分鐘。只賣辣燉雞，吃完可加炒飯。週一至週六 11:30–15:30、16:30–21:45，16:30 剛開門人較少。不用趕時間，慢慢吃。<span style="color:#A85D38;">💡備案：明洞一隻雞巨星店（鐘路 5 街，週四 10:00–23:00）。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">17:45-18:15</span><div><b>放戰利品、小休息：</b>步行約 5～6 分鐘把棉被送回 ZIP1972，喘口氣、換輕便包包。</div></div>
+        <div class="timeline-item"><span class="time-tag">18:15-19:45</span><div><b>樂天超市 (首爾站店，從 D3 移到這裡，體力夠再去)：</b>從飯店搭計程車約 10 分鐘。採買零食伴手禮，單筆滿額現場即時退稅，可免費拿紙箱打包，結完帳搭計程車回飯店。<span style="color:#A85D38;">💡D1 加了換錢後會偏累（凌晨出發）；若不想去，改到 D5 早上 09:00 先逛樂天超市再接南大門市場。營業時間請出發前在 Naver 確認。</span><br><b>🛍 樂天超市省錢重點（網友經驗，出發前再確認）：</b>① 先上網辦樂天會員，有會員價；② 先到 KKday 領優惠券，滿 100,000 韓元可折 6,000 韓元，可和會員價疊加（詳細條件以 KKday 頁面為準）；③ 單筆退稅後金額滿 100,000 韓元，可到服務台領購物袋，容量大、可套在行李箱上；④ 結帳袋子不夠裝，直接去服務台買，不要在收銀台堅持，網友遇到收銀員不給加購。</div></div>
+        <div class="timeline-item"><span class="time-tag">20:00 起</span><div><b>體力還行再二選一：</b><br>① <b>逛 DDP 周邊商場</b>（地鐵 2 或 5 號線 1 站）。週四營業：Doota 10:30–24:00、Hello apM 11:00–01:00、Migliore 到 02:00、nyunyu 到 05:00。<span style="color:#A85D38;">💡Doota 5 樓出示護照可領優惠券（評論資料），並有退稅機台。</span><br>② <b>外帶宵夜回飯店：</b>東大門獵奇辣炒年糕，或「本故鄉美食店 (東廟店)」24H 代烤韓牛。<br>🛌 明天 D2 08:00 就要出門去高陽，建議 22:30 前休息。</div></div>
+
+        <h4 style="color: #A85D38; border-bottom: 2px solid #F3EDE2; padding-bottom: 4px; margin-top: 20px;">DAY 2 ｜ 11/20 (五) 展覽 ➔ AQUAFIELD 高空汗蒸幕 ➔ 回東大門放鬆燒肉</h4>
+        <div class="timeline-item"><span class="time-tag">08:00-08:40</span><div><b>溫暖早餐：</b>飯店附近外帶 <b>Isaac Toast 乙支路4街站店</b>（從 ZIP1972 步行約 2～3 分鐘，路邊小攤、外帶為主，1 位阿嬤製作較慢，建議 07:30 前到）。備案：Isaac Toast &amp; Coffee Migliore（장충단로13길 43，週一至五 08:00 開，步行約 10 分鐘）；或 CU／GS25 便利商店。</div></div>
+        <div class="timeline-item"><span class="time-tag">09:00-09:40</span><div><b>前往高陽 KINTEX：</b>3 人合搭 Uber 直達 KINTEX (寵物展 MEGAZOO，11/20–22 每日 09:00–18:00，展館以官網為準)。<br><span style="color:#A85D38;">💡去程建議直接搭計程車：估計約 ₩35,000–50,000、40–60 分鐘（平日早上可能塞車），3 人分攤每人約 ₩1.2–1.7 萬。省錢方案是地鐵：乙支路4街搭 2 號線 1 站到乙支路3街，轉 3 號線到大化站，再步行約 750 公尺，約 1 小時以上。<b>這段要用 T-money（每人一張），氣候卡不涵蓋高陽。</b>實際車資請先用 Uber 試估。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">13:00-17:00</span><div><b>Starfield Goyang ＆ AQUAFIELD：</b>美食街午餐後，至 4 樓 AQUAFIELD 享用 3 小時精華汗蒸幕（扁柏木房、高空足浴池與甜米釀）。</div></div>
+        <div class="timeline-item"><span class="time-tag">18:30-21:00</span><div><b>晚餐：山清炭火花園烤肉 (산청숯불가든 을지로1號店)：</b>炭火山清黑豬肉、店員代烤，位在乙支路3街站11號出口步行約1分鐘，離飯店只有一站多，高陽回來不用再跑遠。肉品要<b>依人數起點（3人至少3份）</b>，必點鹽味豬五花。<span style="color:#A85D38;">💡人氣超高，請用 CatchTable 預約：多篇網誌寫每月最後一個週一 17:00（韓國時間，台灣 16:00）開放下個月訂位，11 月的訂位預計 <b>10/26（一）17:00 韓國時間</b>開搶，開放後很快被訂光，請以 App 為準。搶不到就用遠端候位，但叫號兩分鐘沒到會取消。備案依序：김숙성（金熟成）、熟成到乙支路店、을지정육、을지갈매기、乙支路3街布帳馬車（見下一項）、河南豬肉家；想省錢可選平價的 도야집 或 제주아방。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">20:30 起</span><div><b>第二攤：乙支路3街布帳馬車／노가리골목 (Nogari Alley)：</b>乙支路3街站 4 號出口出來，左邊第一條巷子走到底，巷弄裡是啤酒屋與路邊攤，賣明太子、烤黃線狹鱈魚、炸雞配生啤酒。名店 <b>만선호프</b>（을지로3가 95-1）。11/20 是週五，攤位比平日多、人也多。<span style="color:#A85D38;">💡山清也在乙支路3街站（11 號出口），走過來很近。11 月夜間偏冷，戶外座位要穿暖、帶暖暖包；營業時間各來源寫法不同（約 12:00 或 18:00 到 24:00），出發前確認。</span></div></div>
+
+        <h4 style="color: #A85D38; border-bottom: 2px solid #F3EDE2; padding-bottom: 4px; margin-top: 20px;">DAY 3 ｜ 11/21 (六) London Bagel ➔ 宮廷韓服寫真 ➔ 光化門領票 ➔ 益善洞茶室 ➔ 19:00 光化門夜景巴士</h4>
+        <div class="timeline-item"><span class="time-tag">07:15-08:30</span><div><b>London Bagel Museum 安國店（早餐外帶）：</b>北村路4街 20，離安國站約 400 公尺，步行 6～8 分鐘；營業 07:00–18:00。06:45 從 ZIP1972 出發，地鐵約 15～20 分鐘（5 號線→3 號線，或 2 號線→3 號線，各轉乘 1 次）。到現場用 CatchTable 登記機排「外帶」，白天排隊很長，有評論用遠端排隊等了約 2 小時，所以要早到現場。<span style="color:#A85D38;">💡外帶約 20 分鐘（評論值，僅供參考）。吃完直接走去景福宮。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">09:30-11:30</span><div><b>景福宮韓服寫真（韓國景福宮韓服 STAR）：</b>IG <b>koreahanbokstar</b> 私訊預約，地址：서울특별시 종로구 통인동 159；3 號線景福宮站 2 號出口步行約 268 公尺，看到店鋪招牌後上 3 樓。多數韓服店 9–10 點才營業，若實際 10:00 才開，請把午餐與領票往後順延。穿韓服免門票入場，漫步黃銀杏與紅楓宮殿拍照。<span style="color:#A85D38;">💡預約狀態：已預約 11/21 09:30 韓服體驗（價格、訂金、歸還時間以店家訊息為準）。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">11:45-13:15</span><div><b>午餐：土俗村蔘雞湯：</b>烏骨雞湯濃郁，糯米吸飽人蔘精華。<span style="color:#A85D38;">💡備案：黃生家刀削麵。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">13:15-13:45</span><div><b>🎫 光化門領夜景巴士實體票：</b>從土俗村搭計程車約 5～10 分鐘（或步行約 15～20 分鐘）到 <b>光化門站 6 號出口直走約 50 公尺，高麗亞那酒店 (Koreana Hotel) 前售票處</b>。出示 KKday 電子憑證／訂單換 3 張實體票，收好別弄丟。<span style="color:#A85D38;">💡晚上才上車但先領票最安心：換票處需在出發前才關，不用在晚上趕時間排隊。售票處營業時間我沒查到，出發前先打光化門諮詢電話 02-777-6090 確認；D3 是週六，不受「週一休息」影響。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">14:00-16:00</span><div><b>益善洞韓屋村 (清水堂)：</b>光化門站搭 5 號線 1 站到鍾路3街站（約 5 分鐘），沉靜竹林造景與抹茶舒芙蕾下午茶，歇腳補充體力。</div></div>
+        <div class="timeline-item"><span class="time-tag">16:00-16:45</span><div><b>Artist Bakery（買隔天早餐）：</b>益善洞步行約 10 分鐘到安國站 1 號出口，現場用 CatchTable 登記「外帶」。挑鹽可頌、可頌等不含奶油內餡的，隔天比較耐放；回旅館用烤箱或烤麵包機回烤。營業時間約 08:00–20:00（現場候位登記，不能預約），出發前確認。<span style="color:#A85D38;">💡熱門品項下午可能賣完，想保證有就早上買 London Bagel 時一併帶。累了可跳過這站。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">17:00-18:00</span><div><b>早一點吃晚餐：이여곰탕（牛肉湯飯）：</b>清爽的牛骨湯配飯，平板點餐，週六 9:00–21:00，吃完約 18:00。<span style="color:#A85D38;">💡備案：三峯陶潭刀削麵（曹溪寺旁，週六 17:00–22:00）。晚餐請控制在 18:10 前出發。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">18:10-18:30</span><div><b>前往光化門排隊：</b>建議搭地鐵（鍾路3街站 5 號線 1 站，免受週六傍晚塞車影響），6 號出口出來走到售票處旁的上車點。<b>出發前 30 分鐘 (18:30) 開始可上車</b>，座位自由入座，想坐二樓視野好的位置就盡早排。</div></div>
+        <div class="timeline-item"><span class="time-tag">19:00-20:30</span><div><b>🌃 光化門城市觀光巴士夜景路線：</b>19:00 準時出發（11/21 屬 9/16–12/31 的 19:00 班次），一天一班，全程約 90 分鐘（評論資料，以現場為準）。<span style="color:#A85D38;">💡11 月晚上約個位數到十度出頭，上層露天很冷：穿羽絨／厚外套、圍巾、手套，帶暖暖包。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">20:30-21:00</span><div><b>回飯店：</b>光化門站搭 5 號線直達乙支路4街站（約 2 站），4 號出口步行 1 分鐘到 ZIP1972。路上可順買便利商店宵夜。</div></div>
+
+        <h4 style="color: #A85D38; border-bottom: 2px solid #F3EDE2; padding-bottom: 4px; margin-top: 20px;">DAY 4 ｜ 11/22 (日) 梨花女子大學賞楓銀杏 ➔ 延南洞林蔭道 ➔ 明洞韓牛慶祝大餐</h4>
+        <div class="timeline-item"><span class="time-tag">09:00-11:30</span><div><b>梨花女子大學賞楓與銀杏：</b>早餐吃 D3 買的 Artist Bakery（旅館回烤）。搭地鐵 2 號線內環（往市廳、弘大方向）直達梨大站，約 17～20 分鐘不用轉車，漫步梨大經典歐風大峽谷（ECC）、哥德式古堡建築與兩側滿開的金黃銀杏與紅楓，拍出歐洲童話般秋景。</div></div>
+        <div class="timeline-item"><span class="time-tag">11:30-15:30</span><div><b>京義線林蔭道 ＆ 延南/弘大爆買：</b>步行或搭計程車前往延南洞，漫步京義線林蔭道公園賞秋景。午餐享用 육전국밥（肉煎湯飯）。<span style="color:#A85D38;">💡備案：豚壽百（24H 豬肉湯飯）、延南豬腳 1987（週日 12:00 起）。</span>順逛 EPT 德訓鞋、Blue Elephant 墨鏡與文創選品。</div></div>
+        <div class="timeline-item"><span class="time-tag">16:00-21:00</span><div><b>明洞商圈 ＆ 王妃家韓牛：</b>逛 Olive Young 明洞旗艦店與美妝百貨，順路到 <b>BUTTER (버터) 明洞店</b>（明洞街 55 號 태흥빌딩 1 樓，離 Olive Young 約 20 公尺內，約 10:00–23:00）逛文具、雜貨與季節小物，有退稅服務請看現場公告。晚餐享用王妃家明洞第二店（明洞9街 13 號 2 樓，離 Olive Young 約 100 公尺）1++ 頂級韓牛燒肉。<br><span style="color:#A85D38;">🚇 ZIP1972 到明洞約 1.2～1.5 公里，可搭 2 號線到乙支路入口站再步行約 10 分鐘；晚餐後搭 Uber 回旅館約 5 分鐘。</span></div></div>
+
+        <h4 style="color: #A85D38; border-bottom: 2px solid #F3EDE2; padding-bottom: 4px; margin-top: 20px;">DAY 5 ｜ 11/23 (一) 南大門伴手禮 ➔ 石牆路楓葉 ➔ 南山谷韓屋村 ➔ 6015巴士直達 T2 返台</h4>
+        <div class="timeline-item"><span class="time-tag">09:00-11:30</span><div><b>退房寄行李 ＆ 南大門市場（提早逛）：</b>南大門離 ZIP1972 約 2 公里，搭 Uber 約 10 分鐘最省事。早點出發人少好逛，採買凍乾草莓伴手禮、現炸蔬菜糖餅，午餐可吃刀削麵街。</div></div>
+        <div class="timeline-item"><span class="time-tag">11:30-13:00</span><div><b>德壽宮石牆路（不進宮）：</b>德壽宮週一休館，只走宮外石牆路拍楓葉與銀杏。體力好可順登正洞展望台（西小門廳舍 13 樓，約 9:00–18:00）。</div></div>
+        <div class="timeline-item"><span class="time-tag">13:00-15:15</span><div><b>南山谷韓屋村 ＆ 回飯店取行李：</b>搭 Uber 或地鐵（忠武路站旁）到韓屋村賞秋景拍照（約 1 小時），再搭車回 ZIP1972 取行李。<span style="color:#A85D38;">💡若時間緊就跳過韓屋村，直接回飯店。出發前確認韓屋村公休日。</span></div></div>
+        <div class="timeline-item"><span class="time-tag">15:30-16:00</span><div><b>搭乘 6015 巴士至 T2：</b><b>最晚 16:00 前搭上車</b>，在乙支路4街．國都飯店站上車，車程約 60-90 分鐘直達仁川 T2，順暢辦理退稅、免稅店採買與搭乘 20:15 CI163 航班返台。</div></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FOOD GUIDE -->
+    <section id="section-food" class="tab-content">
+      <div class="card">
+        <h3>📅 每日餐廳對照表</h3>
+        <p>「查時間」會開 Naver 地圖，出發前請查最新營業時間、公休日與午休。</p>
+        <div class="table-container"><table><thead><tr><th>餐別</th><th>餐廳</th><th>點什麼／重點</th><th>備案</th><th></th></tr></thead><tbody><tr><td><b>D1 晚</b></td><td>鷄林食堂<br><span style="font-size:11px;color:#736C66;">계림식당</span></td><td>辣燉雞（닭도리탕），吃完加炒飯。16:30 開門後去人較少，不用趕時間。週日公休。</td><td>明洞一隻雞 巨星店（東大門・鐘路 5 街）</td><td><a href="https://map.naver.com/p/search/%EA%B3%84%EB%A6%BC%EC%8B%9D%EB%8B%B9%20%EB%8F%88%ED%99%94%EB%AC%B8%EB%A1%9C4%EA%B8%B8%2039" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B3%84%EB%A6%BC%EC%8B%9D%EB%8B%B9%20%EB%8F%88%ED%99%94%EB%AC%B8%EB%A1%9C4%EA%B8%B8%2039" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D1 宵夜</b></td><td>本故鄉美食店 東廟店<br><span style="font-size:11px;color:#736C66;">본고향맛집 동묘점</span></td><td>24H，專人代烤韓牛與豬肉。</td><td>東大門獵奇辣炒年糕（外帶）</td><td><a href="https://map.naver.com/p/search/%EB%B3%B8%EA%B3%A0%ED%96%A5%EB%A7%9B%EC%A7%91%20%EB%8F%99%EB%AC%98%EC%A0%90" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B3%B8%EA%B3%A0%ED%96%A5%EB%A7%9B%EC%A7%91%20%EB%8F%99%EB%AC%98%EC%A0%90" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D2 早</b></td><td>Isaac Toast 乙支路4街站店<br><span style="font-size:11px;color:#736C66;">이삭토스트 을지로4가역점</span></td><td>外帶吐司，趕早上出發 KINTEX。路邊小攤、無座位，建議早點到。</td><td>Isaac Toast &amp; Coffee Migliore（08:00 開）／便利商店</td><td><a href="https://map.naver.com/p/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%20%EC%9D%84%EC%A7%80%EB%A1%9C4%EA%B0%80%EC%97%AD%EC%A0%90" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%20%EC%9D%84%EC%A7%80%EB%A1%9C4%EA%B0%80%EC%97%AD%EC%A0%90" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D2 晚</b></td><td>山清炭火花園 乙支路1號店<br><span style="font-size:11px;color:#736C66;">산청숯불가든 을지로</span></td><td>炭火黑豬肉、店員代烤，需 CatchTable 預約（11 月場次預計 10/26 17:00 韓國時間開搶）；營業約 11:30–23:00，最後點餐 21:50。</td><td>熟成到乙支路店／을지정육／乙支路3街布帳馬車（만선호프）／河南豬肉家</td><td><a href="https://map.naver.com/p/search/%EC%82%B0%EC%B2%AD%EC%88%AF%EB%B6%88%EA%B0%80%EB%93%A0%20%EC%9D%84%EC%A7%80%EB%A1%9C" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%82%B0%EC%B2%AD%EC%88%AF%EB%B6%88%EA%B0%80%EB%93%A0%20%EC%9D%84%EC%A7%80%EB%A1%9C" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D3 早</b></td><td>London Bagel Museum 安國店<br><span style="font-size:11px;color:#736C66;">런던 베이글 뮤지엄 안국</span></td><td>07:00 開，現場 CatchTable 登記外帶，早到較快。</td><td>—</td><td><a href="https://map.naver.com/p/search/%EB%9F%B0%EB%8D%98%20%EB%B2%A0%EC%9D%B4%EA%B8%80%20%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%95%88%EA%B5%AD" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=London%20Bagel%20Museum%20Anguk&amp;query_place_id=ChIJKw66zRCjfDURuaw9qYPdI-k" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D3 午</b></td><td>土俗村蔘雞湯<br><span style="font-size:11px;color:#736C66;">토속촌 삼계탕</span></td><td>蔘雞湯（可選烏骨雞）。週六中午排隊久，建議 11:45 前到。</td><td>黃生家刀削麵</td><td><a href="https://map.naver.com/p/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D3 下午</b></td><td>清水堂 益善洞<br><span style="font-size:11px;color:#736C66;">청수당 익선동</span></td><td>抹茶舒芙蕾與茶，需要時間等候與製作。</td><td>—</td><td><a href="https://map.naver.com/p/search/%EC%B2%AD%EC%88%98%EB%8B%B9%20%EC%9D%B5%EC%84%A0%EB%8F%99" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%B2%AD%EC%88%98%EB%8B%B9%20%EC%9D%B5%EC%84%A0%EB%8F%99" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D3 下午</b></td><td>Artist Bakery 安國店<br><span style="font-size:11px;color:#736C66;">아티스트 베이커리</span></td><td>買隔天早餐，現場 CatchTable 登記外帶。</td><td>早上跟 London Bagel 一起買</td><td><a href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D3 晚</b></td><td>이여곰탕<br><span style="font-size:11px;color:#736C66;">이여곰탕 종로</span></td><td>牛骨湯配飯，湯清爽。17:00 開吃、18:10 前出發去搭 19:00 夜景巴士。</td><td>三峯陶潭刀削麵（水芹菜煎餅）</td><td><a href="https://map.naver.com/p/search/%EC%9D%B4%EC%97%AC%EA%B3%B0%ED%83%95%20%EC%A2%85%EB%A1%9C" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%EC%97%AC%EA%B3%B0%ED%83%95%20%EC%A2%85%EB%A1%9C" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D4 午</b></td><td>육전국밥 홍대점<br><span style="font-size:11px;color:#736C66;">肉煎湯飯</span></td><td>牛肉湯飯、肉餅；桌上自助點餐，24 小時營業。</td><td>豚壽百（24H）／延南豬腳 1987（週日 12:00 起）</td><td><a href="https://map.naver.com/p/search/%EC%9C%A1%EC%A0%84%EA%B5%AD%EB%B0%A5%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9C%A1%EC%A0%84%EA%B5%AD%EB%B0%A5%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D4 晚</b></td><td>王妃家 明洞第二店<br><span style="font-size:11px;color:#736C66;">왕비집 명동 2호점</span></td><td>韓牛燒肉、醬燒牛排骨套餐。</td><td>江南麵屋 燉牛排骨</td><td><a href="https://map.naver.com/p/search/%EC%99%95%EB%B9%84%EC%A7%91%20%EB%AA%85%EB%8F%999%EA%B8%B8%2013" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=Wangbijib%20Myeongdong%202nd%20store&amp;query_place_id=ChIJrZpXL3ajfDURTCDbNleIqNw" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr><tr><td><b>D5 午</b></td><td>南大門市場刀削麵街<br><span style="font-size:11px;color:#736C66;">남대문 칼국수골목</span></td><td>刀削麵、現炸蔬菜糖餅，趕在 11:30 前吃完去石牆路。</td><td>滿足五香豬腳</td><td><a href="https://map.naver.com/p/search/%EB%82%A8%EB%8C%80%EB%AC%B8%20%EC%B9%BC%EA%B5%AD%EC%88%98%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">查時間 ↗</a> <a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%82%A8%EB%8C%80%EB%AC%B8%20%EC%B9%BC%EA%B5%AD%EC%88%98%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener" style="color:#A85D38;white-space:nowrap;">Google ↗</a></td></tr></tbody></table></div>
+      </div>
+      <div class="card">
+        <h3>🧾 點餐與用餐小技巧</h3>
+        <ul style="line-height:1.9;">
+          <li><b>燒肉份數：</b>不少店要求份數不少於人數，3 人請點 3 份起，點餐前先確認。</li>
+          <li><b>午休：</b>韓國餐廳常有 15:00–17:00 的休息時段（브레이크타임），傍晚場請看清楚再出發。</li>
+          <li><b>小菜與水：</b>小菜多可免費續，水多半自助取用。</li>
+          <li><b>鍋物：</b>一鍋雞、湯鍋多以 2–3 人為一鍋，請店員推薦大小。</li>
+        </ul>
+        <h4>🗣️ 點餐短句</h4>
+        <ul style="line-height:1.9;">
+          <li>三人份：<b>삼 인분 주세요.</b></li>
+          <li>請幫我烤：<b>구워 주세요.</b></li>
+          <li>加麵／加料：<b>사리 추가해 주세요.</b></li>
+          <li>小菜再來一份：<b>반찬 더 주세요.</b></li>
+          <li>請不要放香菜：<b>고수 빼 주세요.</b></li>
+          <li>有中文菜單嗎？：<b>중국어 메뉴판 있어요?</b></li>
+          <li>外帶：<b>포장해 주세요.</b></li>
+          <li>結帳：<b>계산해 주세요.</b></li>
+        </ul>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🍲 暖胃湯品與一隻雞</h3>
+          <p><b>鷄林食堂（계림식당）：</b>鐘路三街 ｜ 蒜味濃郁的辣燉雞，吃完加炒飯。週日公休。</p>
+          <div class="tip-box"><b>💡 備案：明洞一隻雞</b> 鐘路5街，清燉整隻雞鍋，每天營業。</div>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>土俗村蔘雞湯：</b>景福宮站 ｜ 烏骨雞蔘雞湯、濃郁人蔘糯米湯、海鮮煎餅。</p>
+          <div class="tip-box"><b>💡 免排隊備案：黃生家刀削麵</b> 米其林必比登推薦，牛骨清湯麵與鮮肉包子。</div>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>육전국밥 홍대점（肉煎湯飯）：</b>弘大 ｜ 牛肉湯飯、肉餅，24H 營業。<br><b>備案：</b>豚壽百（돈수백）24H 豬肉湯飯；延南豬腳 1987（연남족발 1987）週日 12:00 起。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>江南麵屋 (강남면옥 弘大店)：</b>超軟嫩水果醬燉牛排骨與平壤水冷麵。</p>
+        </div>
+
+        <div class="card">
+          <h3>🥩 頂級燒肉與 24H 宵夜</h3>
+          <p><b>王妃家 (明洞第二店)：</b>1++ 頂級韓牛、醬燒牛排骨套餐。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>D2 晚餐 烤豬肉（乙支路3街站一帶）</b></p>
+          <p><b>首選：山清炭火花園</b> 炭火黑豬肉，需 CatchTable 預約（10/26 開搶）。</p>
+          <p><b>備案：</b>김숙성（金熟成，熟成豬約 17,000 韓元）→ 熟成到 → 을지정육（骰子豬肉）→ 을지갈매기（護心肉）</p>
+          <p><b>平價：</b>도야집、제주아방（約 17,000～18,000 韓元）</p>
+          <p><b>第二攤：</b>노가리골목布帳馬車（만선호프）</p>
+          <div class="tip-box"><b>💡 地址、營業時間請看「韓文卡」；價格為網站資料，以現場為準。</b></div>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>🌙 24H 宵夜首選：本故鄉美食店 (본고향맛집 東廟店)</b> 24小時專人代烤 1++ 韓牛與高檔豬肉。</p>
+          <p style="margin-top: 4px;"><b>東大門獵奇辣炒年糕 (總店)：</b>爆量牽絲起司辣炒年糕，可外帶回飯店。</p>
+        </div>
+
+        <div class="card">
+          <h3>☕ 韓屋茶室與人氣烘焙</h3>
+          <p><b>London Bagel Museum (安國店)：</b>北村路4街 20 ｜ 貝果，07:00 開，建議早到外帶。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>Artist Bakery (安國店)：</b>安國站 1號出口 ｜ 松露鹽可頌、奶油鹽可頌 (D3 下午買隔天早餐，現場登記外帶)。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>清水堂 (Cheongsudang)：</b>益善洞 ｜ 沉靜竹林水池造景、抹茶舒芙蕾鬆餅。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>Cafe Layered / Cafe Highwaist：</b>延南洞歐式浪漫塗鴉鄉村風、手作人氣司康與小熊造型蛋糕。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>Cafe Skön：</b>延南洞白色小屋風、極致愜意的庭園與戶外座位區。</p>
+        </div>
+
+        <div class="card">
+          <h3>🍓 市場小吃與在地美味</h3>
+          <p><b>南大門市場：</b>現炸蔬菜糖餅、韓式刀削麵街、大王手工鮮肉包。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>廣藏市場：</b>順熙家綠豆煎餅、元祖麻藥飯捲、富村生拌牛肉 (米其林推薦)。</p>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>滿足五香豬腳 (市廳總店)：</b>米其林必比登推薦，溫熱香軟豬腳搭配水餃湯。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SHOPPING GUIDE -->
+    <section id="section-shopping" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <h3>🛏️ 廣藏市場四季被 (最推 148 / 158 號店)</h3>
+          <p><b>特色：</b>韓國莫代爾 (Modal) 超柔四季被，極輕極暖可直接機洗。</p>
+          <p><b>流程：</b>選定花色尺寸後，店家提供<b>免費抽真空打包服務</b>，體積縮小 70%，極方便塞行李箱！</p>
+          <p style="font-size: 11px; color: #A85D38; margin-top: 6px;">💡 貼心提醒：棉被店多於 18:00 前後陸續打烊，請於 Day 1 優先前往採買！</p>
+        </div>
+
+        <div class="card">
+          <h3>👟 服飾鞋款與質感文創</h3>
+          <p><b>EPT (East Pacific Trade 弘大旗艦店)：</b>爆紅德訓鞋、軟墊板鞋。</p>
+          <p><b>Blue Elephant (弘大/延南)：</b>韓國平價質感墨鏡名店。</p>
+          <p><b>Object (延南總店)：</b>可愛插畫貼紙、手作雜貨與質感生活用品。</p>
+          <p><b>nyunyu / MIMILINE (東大門)：</b>整棟大型飾品配件專賣店，滿額可現場退稅。</p>
+        </div>
+
+        <div class="card">
+          <h3>💄 Olive Young 明洞旗艦店 (必買清單)</h3>
+          <p><b>保養首選：</b>Torriden 玻尿酸保濕精華 / 面膜、Rejuran 麗珠蘭修護精華。</p>
+          <p><b>美妝彩妝：</b>fwee 布丁唇頰兩用膏、Anua 魚腥草鎮定棉片。</p>
+          <p><b>髮品與保健：</b>Unove 沙龍級護髮油、Ortho Mol 頂級複合維他命。</p>
+        </div>
+
+        <div class="card">
+          <h3>🛒 超市與市場伴手禮</h3>
+          <p><b>樂天超市 (首爾站總店)：</b>韓國泡麵、HBAF 蜂蜜黃油杏仁果、烏龜餅乾、藥果。</p>
+          <div class="tip-box"><b>💳 退稅叮嚀：</b>單筆滿 15,000 韓元憑護照可享現場即時扣抵退稅。現場提供免費紙箱與膠帶免費打包！</div>
+          <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #E8E2D8;">
+          <p><b>南大門傳統市場：</b>香甜酥脆無添加「凍乾草莓」、韓國人蔘產品。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: KOREAN CARDS -->
+    <section id="section-korean" class="tab-content">
+      <div class="card">
+        <h3>🚕 運將與店家全螢幕大字卡</h3>
+        <p style="margin-bottom: 12px;">點擊下方任何景點或餐廳按鈕，即可彈出全螢幕大字卡，直接出示給計程車司機或店家看！</p>
+
+        <!-- Category Filters -->
+        <div>
+          <button onclick="filterCards('all')" class="filter-btn active">全部 (38)</button>
+          <button onclick="filterCards('hotel')" class="filter-btn">🏨 住宿與交通</button>
+          <button onclick="filterCards('food')" class="filter-btn">🍲 熱門美食</button>
+          <button onclick="filterCards('spot')" class="filter-btn">🍁 經典景點</button>
+          <button onclick="filterCards('shop')" class="filter-btn">🛍️ 購物商圈</button>
+        </div>
+
+        <div class="grid-2" style="margin-top: 14px;">
+          <!-- Hotel & Transport -->
+          <div class="card card-item" data-cat="hotel" style="margin-bottom:0;">
+            <h4>ZIP1972（住宿）</h4>
+            <p style="font-size:11px; color:#736C66;">ZIP1972 · 중구 주교동 122-3 2층</p>
+            <button onclick="showBigCard('ZIP1972 住宿', 'ZIP1972', '서울 중구 주교동 122-3 2층 (ZIP1972)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="hotel" style="margin-bottom:0;">
+            <h4>6015 機場巴士站 (乙支路4街．國都飯店)</h4>
+            <p style="font-size:11px; color:#736C66;">6015번 공항버스 정류장 (을지로4가 · 국도호텔)</p>
+            <button onclick="showBigCard('6015 機場巴士站', '국도호텔 (6015 정류장 · 을지로4가)', '을지로4가 국도호텔 앞 (02163)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <!-- Food -->
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>明洞一隻雞（巨星店）</h4>
+            <p style="font-size:11px; color:#736C66;">거성닭한마리</p>
+            <button onclick="showBigCard('明洞一隻雞（巨星店）', '거성닭한마리', '서울특별시 종로구 종로 252-9')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>土俗村蔘雞湯</h4>
+            <p style="font-size:11px; color:#736C66;">토속촌 삼계탕</p>
+            <button onclick="showBigCard('土俗村蔘雞湯', '토속촌 삼계탕', '서울특별시 종로구 자하문로5길 5')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>王妃家 (明洞第二店)</h4>
+            <p style="font-size:11px; color:#736C66;">왕비집 명동 2호점</p>
+            <button onclick="showBigCard('王妃家 明洞第二店', '왕비집 명동 2호점', '서울특별시 중구 명동9길 13 2층')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>肉典食堂 (新設洞總店)</h4>
+            <p style="font-size:11px; color:#736C66;">육전식당 본점</p>
+            <button onclick="showBigCard('肉典食堂 總店', '육전식당 본점', '서울특별시 동대문구 천호대로 33')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>本故鄉美食店 (東廟24H店)</h4>
+            <p style="font-size:11px; color:#736C66;">본고향맛집 동묘점</p>
+            <button onclick="showBigCard('本故鄉美食店 東廟店', '본고향맛집 동묘점', '서울특별시 종로구 지봉로 16')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>육전국밥 弘大店</h4>
+            <p style="font-size:11px; color:#736C66;">육전국밥 홍대점</p>
+            <button onclick="showBigCard('육전국밥 弘大店', '육전국밥 홍대점', '서울특별시 마포구 서교동 331-17')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>豚壽百</h4>
+            <p style="font-size:11px; color:#736C66;">돈수백</p>
+            <button onclick="showBigCard('豚壽百', '돈수백', '서울특별시 마포구 홍익로6길 74')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>延南豬腳 1987</h4>
+            <p style="font-size:11px; color:#736C66;">연남족발 1987</p>
+            <button onclick="showBigCard('延南豬腳 1987', '연남족발 1987', '서울특별시 마포구 동교로 222')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>London Bagel Museum (安國店)</h4>
+            <p style="font-size:11px; color:#736C66;">런던 베이글 뮤지엄 안국</p>
+            <button onclick="showBigCard('London Bagel Museum', '런던 베이글 뮤지엄 안국', '서울 종로구 북촌로4길 20')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>Artist Bakery (安國店)</h4>
+            <p style="font-size:11px; color:#736C66;">아티스트 베이커리</p>
+            <button onclick="showBigCard('Artist Bakery', '아티스트 베이커리', '서울특별시 종로구 율곡로 45 1층 (안국역 1번 출구 앞)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>清水堂 (益善洞店)</h4>
+            <p style="font-size:11px; color:#736C66;">청수당 익선동</p>
+            <button onclick="showBigCard('清水堂 益善洞', '청수당 익선동', '서울특별시 종로구 돈화문로11나길 31-9')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <!-- Spots -->
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>景福宮 光化門</h4>
+            <p style="font-size:11px; color:#736C66;">경복궁 광화문</p>
+            <button onclick="showBigCard('景福宮', '경복궁 광화문', '서울특별시 종로구 사직로 161')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>光化門 夜景巴士售票處（D3 領票）</h4>
+            <p style="font-size:11px; color:#736C66;">서울시티투어버스 광화문 매표소 (코리아나호텔 앞)</p>
+            <button onclick="showBigCard('夜景巴士售票處', '서울시티투어버스 광화문 매표소', '서울 중구 세종대로 135 코리아나호텔 앞 (광화문역 6번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>韓服 Star（D3 韓服租借）</h4>
+            <p style="font-size:11px; color:#736C66;">종로구 통인동 159 · 3층</p>
+            <button onclick="showBigCard('韓服 Star', '서울 종로구 통인동 159', '서울특별시 종로구 통인동 159 3층 (경복궁역 2번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>山清炭火花園 乙支路1號店 (D2 晚餐)</h4>
+            <p style="font-size:11px; color:#736C66;">산청숯불가든 을지로</p>
+            <button onclick="showBigCard('山清炭火花園', '산청숯불가든 을지로', '서울 중구 을지로 114-6 1층 (을지로3가역 11번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>乙支路3街布帳馬車 만선호프 (D2 第二攤)</h4>
+            <p style="font-size:11px; color:#736C66;">만선호프 · 을지로3가 95-1</p>
+            <button onclick="showBigCard('만선호프', '만선호프 을지로3가', '서울 중구 을지로3가 95-1 (을지로3가역 4번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>을지정육 (D2 備案)</h4>
+            <p style="font-size:11px; color:#736C66;">을지정육 · 충무로5길 24</p>
+            <button onclick="showBigCard('을지정육 (D2 備案)', '을지정육', '서울 중구 충무로5길 24 1층 (을지로3가역 9번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>熟成到 乙支路店 (D2 備案)</h4>
+            <p style="font-size:11px; color:#736C66;">숙성도 을지로점</p>
+            <button onclick="showBigCard('熟成到 乙支路店 (D2 備案)', '숙성도 을지로점', '서울 중구 삼일대로10길 36 2층 (을지로3가역 12번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>을지갈매기 (D2 備案)</h4>
+            <p style="font-size:11px; color:#736C66;">을지갈매기 · 을지로3가 295-12</p>
+            <button onclick="showBigCard('을지갈매기 (D2 備案)', '을지갈매기', '서울 중구 을지로3가 295-12 (을지로3가역 10번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>도야집 乙支路店 (平價備案)</h4>
+            <p style="font-size:11px; color:#736C66;">도야집 을지로점 · 수표로12길 31</p>
+            <button onclick="showBigCard('도야집 乙支路店 (平價備案)', '도야집 을지로점', '서울 중구 수표로12길 31 1층')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>제주아방 (平價備案)</h4>
+            <p style="font-size:11px; color:#736C66;">제주아방 · 을지로18길 15</p>
+            <button onclick="showBigCard('제주아방 (平價備案)', '제주아방', '서울 중구 을지로18길 15 1층 (을지로3가역 7번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>김숙성 乙支路站店 (D2 備案)</h4>
+            <p style="font-size:11px; color:#736C66;">김숙성 을지로역점 · 충무로 46-1</p>
+            <button onclick="showBigCard('金熟成 乙支路站店', '김숙성 을지로역점', '서울 중구 충무로 46-1 1층 (을지로3가역 8번 출구)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>德壽宮 石牆路</h4>
+            <p style="font-size:11px; color:#736C66;">덕수궁 돌담길</p>
+            <button onclick="showBigCard('德壽宮 石牆路', '덕수궁 돌담길', '서울특별시 중구 세종대로 99')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>梨花女子大學</h4>
+            <p style="font-size:11px; color:#736C66;">이화여자대학교</p>
+            <button onclick="showBigCard('梨花女子大學', '이화여자대학교', '서울특별시 서대문구 이화여대길 52')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>京義線林蔭道 (延南洞)</h4>
+            <p style="font-size:11px; color:#736C66;">경의선숲길 (연남동)</p>
+            <button onclick="showBigCard('京義線林蔭道 연남동', '경의선숲길 연남동 구간', '서울특별시 마포구 동교로51길 133')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>Starfield Goyang (AQUAFIELD)</h4>
+            <p style="font-size:11px; color:#736C66;">스타필드 고양 (아쿠아필드)</p>
+            <button onclick="showBigCard('Starfield Goyang', '스타필드 고양', '경기도 고양시 덕양구 고양대로 1955')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+                    <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>DDP 東大門設計廣場</h4>
+            <p style="font-size:11px; color:#736C66;">동대문디자인플라자 (DDP)</p>
+            <button onclick="showBigCard('DDP 東大門設計廣場', '동대문디자인플라자 (DDP)', '서울특별시 중구 을지로 281')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="spot" style="margin-bottom:0;">
+            <h4>高陽 KINTEX</h4>
+            <p style="font-size:11px; color:#736C66;">킨텍스 (일산)</p>
+            <button onclick="showBigCard('高陽 KINTEX', '킨텍스 (일산)', '경기도 고양시 일산서구 킨텍스로 217-60 (제1전시장) / 217-59 (제2전시장)')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>鷄林食堂</h4>
+            <p style="font-size:11px; color:#736C66;">계림식당</p>
+            <button onclick="showBigCard('鷄林食堂', '계림식당', '서울특별시 종로구 돈화문로4길 39')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>이여곰탕 牛肉湯飯</h4>
+            <p style="font-size:11px; color:#736C66;">이여곰탕 종로</p>
+            <button onclick="showBigCard('이여곰탕 牛肉湯飯', '이여곰탕 종로', '서울특별시 종로구 율곡로4길 70')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="food" style="margin-bottom:0;">
+            <h4>三峯陶潭刀削麵</h4>
+            <p style="font-size:11px; color:#736C66;">삼봉도담 칼국수</p>
+            <button onclick="showBigCard('三峯陶潭刀削麵', '삼봉도담 칼국수', '서울특별시 종로구 우정국로 45-5')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+<!-- Shopping -->
+          <div class="card card-item" data-cat="shop" style="margin-bottom:0;">
+            <h4>BUTTER 明洞店 (D4)</h4>
+            <p style="font-size:11px; color:#736C66;">버터 명동점</p>
+            <button onclick="showBigCard('BUTTER 明洞店', '버터 명동점', '서울 중구 명동길 55 태흥빌딩 1층')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="shop" style="margin-bottom:0;">
+            <h4>廣藏市場 (棉被148/158號店)</h4>
+            <p style="font-size:11px; color:#736C66;">광장시장 이불매장</p>
+            <button onclick="showBigCard('廣藏市場 棉被店', '광장시장 (종로5가역)', '서울특별시 종로구 창경궁로 88')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="shop" style="margin-bottom:0;">
+            <h4>樂天超市 (首爾站總店)</h4>
+            <p style="font-size:11px; color:#736C66;">롯데마트 서울역점</p>
+            <button onclick="showBigCard('樂天超市 首爾站店', '롯데마트 서울역점', '서울특별시 중구 한강대로 405')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="shop" style="margin-bottom:0;">
+            <h4>南大門傳統市場</h4>
+            <p style="font-size:11px; color:#736C66;">남대문시장</p>
+            <button onclick="showBigCard('南大門市場', '남대문시장', '서울특별시 중구 남대문시장4길 21')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+
+          <div class="card card-item" data-cat="shop" style="margin-bottom:0;">
+            <h4>Olive Young 明洞旗艦店</h4>
+            <p style="font-size:11px; color:#736C66;">올리브영 명동 플래그십</p>
+            <button onclick="showBigCard('Olive Young 明洞旗艦店', '올리브영 명동 플래그십', '서울특별시 중구 명동길 53')" class="big-card-btn" style="margin-top:8px;">放大給司機看 🔍</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Taxi & Restaurant Phrases -->
+      <div class="card">
+        <h3>🗣️ 常用運將與餐廳溝通短句</h3>
+        <ul style="line-height:2;">
+          <li><b>請帶我去這裡：</b> 여기로 가주세요. (Yeo-gi-ro ga-ju-se-yo)</li>
+          <li><b>請在這裡讓我下車：</b> 여기서 내려주세요. (Yeo-gi-seo nae-ryeo-ju-se-yo)</li>
+          <li><b>請問可以刷卡嗎？：</b> 카드로 계산할게요. (Ka-deu-ro gye-san-hal-ge-yo)</li>
+          <li><b>請稍微減辣（小辣）：</b> 덜 매운맛으로 해주세요. (Deol mae-un-mas-eu-ro hae-ju-se-yo)</li>
+          <li><b>請給我冰水與小碟：</b> 물이랑 앞접시 주세요. (Mul-i-rang ap-jeop-si ju-se-yo)</li>
+          <li><b>請幫我辦理即時退稅：</b> 텍스 리펀 (Tax Refund) 해주세요.</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- SECTION 7: QUICK REFERENCE -->
+    <section id="section-quick" class="tab-content">
+      <div class="card">
+        <h3>📞 速查：電話與地圖</h3>
+        <p>點區域展開。電話來自旅伴整理的名單，出發前請抽查重要店家。找不到時，Naver 與 Google 地圖交替搜尋。</p>
+        <div class="tip-box"><b>實用 APP：</b>Naver Map／Google 地圖（導航）、Uber（叫車，可貼韓文店名）、CatchTable Global（Artist Bakery、王妃家等熱門店抽號碼牌或預約）。</div>
+      </div>
+      <details class="card" style="padding:14px 20px;" open><summary>🏨 住宿與機場巴士 <span style="font-weight:normal;color:#736C66;font-size:12px;">（2 處）</span></summary><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">ZIP1972（住宿）</b><div style="font-size:11px;color:#736C66;">중구 주교동 122-3 2층（無電梯）</div><div style="font-size:12px;">📞 <a href="tel:+821082805236">010-8280-5236</a></div><div style="font-size:12px;margin:2px 0;">入住 15:00–23:30，退房 11:00 前，可寄放行李</div><a href="https://map.naver.com/p/search/Zip1972%20Hostel" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Zip%201972%20Hostel&amp;query_place_id=ChIJuRozT5CjfDURclFGxD8kR0w" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">6015 機場巴士站（乙支路4街．國都飯店）</b><div style="font-size:11px;color:#736C66;">을지로4가 베스트웨스턴 프리미어 호텔 국도 · 站號 02163</div><div style="font-size:12px;margin:2px 0;">從 ZIP1972 步行約 4 分鐘（268 公尺）。地圖以旁邊的國都飯店為準</div><a href="https://map.naver.com/p/search/%EA%B5%AD%EB%8F%84%ED%98%B8%ED%85%94%20%EC%9D%84%EC%A7%80%EB%A1%9C" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Kukdo%20Seoul" target="_blank" rel="noopener" class="ql">Google</a></div></details><details class="card" style="padding:14px 20px;"><summary>📍 東大門／廣藏／新設洞 <span style="font-weight:normal;color:#736C66;font-size:12px;">（13 家）</span></summary><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">鷄林食堂（D1 晚餐）</b><div style="font-size:11px;color:#736C66;">계림식당</div><div style="font-size:12px;">📞 <a href="tel:+82222636658">02-2263-6658</a></div><div style="font-size:12px;margin:2px 0;">辣燉雞，加炒飯。週日公休，15:30–16:30 午休</div><a href="https://map.naver.com/p/search/%EA%B3%84%EB%A6%BC%EC%8B%9D%EB%8B%B9%20%EB%8F%88%ED%99%94%EB%AC%B8%EB%A1%9C4%EA%B8%B8%2039" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B3%84%EB%A6%BC%EC%8B%9D%EB%8B%B9%20%EB%8F%88%ED%99%94%EB%AC%B8%EB%A1%9C4%EA%B8%B8%2039" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">明洞一隻雞 巨星店（D1 備案）</b><div style="font-size:11px;color:#736C66;">거성닭한마리（東大門・종로 252-9）</div><div style="font-size:12px;">📞 <a href="tel:+82227228249">02-2272-8249</a></div><div style="font-size:12px;margin:2px 0;">整隻雞鍋，評論說人潮較少。週四 10:00–23:00，週五至週日到 24:00。3 人請先問店員點幾隻（店家常規定每 2 人 1 隻）</div><a href="https://map.naver.com/p/search/%EA%B1%B0%EC%84%B1%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC%20%EC%A2%85%EB%A1%9C%20252-9" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B1%B0%EC%84%B1%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC%20%EC%A2%85%EB%A1%9C%20252-9" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">本故鄉美食店 東廟店</b><div style="font-size:11px;color:#736C66;">본고향맛집 동묘점</div><div style="font-size:12px;">📞 <a href="tel:+82222343394">02-2234-3394</a></div><div style="font-size:12px;margin:2px 0;">24H。韓牛雪花、五花肉、水冷麵</div><a href="https://map.naver.com/p/search/%EB%B3%B8%EA%B3%A0%ED%96%A5%EB%A7%9B%EC%A7%91%20%EB%8F%99%EB%AC%98%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B3%B8%EA%B3%A0%ED%96%A5%EB%A7%9B%EC%A7%91%20%EB%8F%99%EB%AC%98%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">肉典食堂 總店</b><div style="font-size:11px;color:#736C66;">육전식당 본점</div><div style="font-size:12px;">📞 <a href="tel:+82222346373">02-2234-6373</a></div><div style="font-size:12px;margin:2px 0;">熟成豬五花、熟成梅花肉</div><a href="https://map.naver.com/p/search/%EC%9C%A1%EC%A0%84%EC%8B%9D%EB%8B%B9%20%EC%B2%9C%ED%98%B8%EB%8C%80%EB%A1%9C%2033" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9C%A1%EC%A0%84%EC%8B%9D%EB%8B%B9%20%EC%B2%9C%ED%98%B8%EB%8C%80%EB%A1%9C%2033" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">東大門獵奇辣炒年糕</b><div style="font-size:11px;color:#736C66;">동대문엽기떡볶이 본점</div><div style="font-size:12px;">📞 <a href="tel:+82222368592">02-2236-8592</a></div><div style="font-size:12px;margin:2px 0;">可外帶，辣度選微辣</div><a href="https://map.naver.com/p/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%BD%EA%B8%B0%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8F%99%EB%8C%80%EB%AC%B8%EC%97%BD%EA%B8%B0%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">全州家烤魚</b><div style="font-size:11px;color:#736C66;">동대문 전주집</div><div style="font-size:12px;">📞 <a href="tel:+82222791095">02-2279-1095</a></div><div style="font-size:12px;margin:2px 0;">鮁魚、黃花魚、青花魚</div><a href="https://map.naver.com/p/search/%EB%8F%99%EB%8C%80%EB%AC%B8%20%EC%A0%84%EC%A3%BC%EC%A7%91" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8F%99%EB%8C%80%EB%AC%B8%20%EC%A0%84%EC%A3%BC%EC%A7%91" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">順熙家綠豆煎餅（廣藏）</b><div style="font-size:11px;color:#736C66;">순희네빈대떡</div><div style="font-size:12px;">📞 <a href="tel:+82222683344">02-2268-3344</a></div><div style="font-size:12px;margin:2px 0;">綠豆煎餅、肉餅</div><a href="https://map.naver.com/p/search/%EC%88%9C%ED%9D%AC%EB%84%A4%EB%B9%88%EB%8C%80%EB%96%A1" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%88%9C%ED%9D%AC%EB%84%A4%EB%B9%88%EB%8C%80%EB%96%A1" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">昌信生拌牛肉（廣藏）</b><div style="font-size:11px;color:#736C66;">창신육회</div><div style="font-size:12px;">📞 <a href="tel:+82222666085">02-2266-6085</a></div><div style="font-size:12px;margin:2px 0;">生拌牛肉、生牛肉章魚雙拼</div><a href="https://map.naver.com/p/search/%EC%B0%BD%EC%8B%A0%EC%9C%A1%ED%9A%8C" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%B0%BD%EC%8B%A0%EC%9C%A1%ED%9A%8C" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Isaac Toast 乙支路4街站店</b><div style="font-size:11px;color:#736C66;">이삭토스트 을지로4가역점</div><div style="font-size:12px;margin:2px 0;">ZIP1972 步行約 2～3 分鐘，外帶小攤，營業時間請查 Naver</div><a href="https://map.naver.com/p/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%20%EC%9D%84%EC%A7%80%EB%A1%9C4%EA%B0%80%EC%97%AD%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%20%EC%9D%84%EC%A7%80%EB%A1%9C4%EA%B0%80%EC%97%AD%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Isaac Toast &amp; Coffee Migliore（備案）</b><div style="font-size:11px;color:#736C66;">이삭토스트앤커피 미글리오레 · 장충단로13길 43</div><div style="font-size:12px;">📞 <a href="tel:+82222772775">02-2277-2775</a></div><div style="font-size:12px;margin:2px 0;">週一至五 08:00 開，外帶</div><a href="https://map.naver.com/p/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%95%A4%EC%BB%A4%ED%94%BC%20%EB%AF%B8%EA%B8%80%EB%A6%AC%EC%98%A4%EB%A0%88" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8%EC%95%A4%EC%BB%A4%ED%94%BC%20%EB%AF%B8%EA%B8%80%EB%A6%AC%EC%98%A4%EB%A0%88" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">廣藏市場棉被店 148/158 號</b><div style="font-size:11px;color:#736C66;">광장시장 이불</div><div style="font-size:12px;">📞 <a href="tel:+82222670291">02-2267-0291</a></div><div style="font-size:12px;margin:2px 0;">約 18:00 前打烊，免費抽真空打包</div><a href="https://map.naver.com/p/search/%EA%B4%91%EC%9E%A5%EC%8B%9C%EC%9E%A5%20%EC%9D%B4%EB%B6%88" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B4%91%EC%9E%A5%EC%8B%9C%EC%9E%A5%20%EC%9D%B4%EB%B6%88" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">nyunyu 東大門店</b><div style="font-size:11px;color:#736C66;">뉴뉴 동대문점</div><div style="font-size:12px;">📞 <a href="tel:+82222386688">02-2238-6688</a></div><div style="font-size:12px;margin:2px 0;">整棟飾品、包包，現場退稅</div><a href="https://map.naver.com/p/search/%EB%89%B4%EB%89%B4%20%EB%8F%99%EB%8C%80%EB%AC%B8%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%89%B4%EB%89%B4%20%EB%8F%99%EB%8C%80%EB%AC%B8%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">DDP 東大門設計廣場</b><div style="font-size:11px;color:#736C66;">동대문디자인플라자</div><div style="font-size:12px;">📞 <a href="tel:+82221530000">02-2153-0000</a></div><div style="font-size:12px;margin:2px 0;">夜景拍攝點</div><a href="https://map.naver.com/p/search/%EB%8F%99%EB%8C%80%EB%AC%B8%EB%94%94%EC%9E%90%EC%9D%B8%ED%94%8C%EB%9D%BC%EC%9E%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8F%99%EB%8C%80%EB%AC%B8%EB%94%94%EC%9E%90%EC%9D%B8%ED%94%8C%EB%9D%BC%EC%9E%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Doota Mall（D1 備案）</b><div style="font-size:11px;color:#736C66;">두타몰</div><div style="font-size:12px;">📞 <a href="tel:+82233983333">02-3398-3333</a></div><div style="font-size:12px;margin:2px 0;">週四 10:30–24:00。5 樓護照換優惠券（評論資料），有退稅機台</div><a href="https://map.naver.com/p/search/%EB%91%90%ED%83%80%EB%AA%B0%20%EC%9E%A5%EC%B6%A9%EB%8B%A8%EB%A1%9C%20275" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%91%90%ED%83%80%EB%AA%B0%20%EC%9E%A5%EC%B6%A9%EB%8B%A8%EB%A1%9C%20275" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Migliore 東大門（D1 備案）</b><div style="font-size:11px;color:#736C66;">밀리오레 동대문</div><div style="font-size:12px;">📞 <a href="tel:+82233930296">02-3393-0296</a></div><div style="font-size:12px;margin:2px 0;">週四 10:30–02:00，週一公休</div><a href="https://map.naver.com/p/search/%EB%B0%80%EB%A6%AC%EC%98%A4%EB%A0%88%20%EC%9E%A5%EC%B6%A9%EB%8B%A8%EB%A1%9C%20263" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B0%80%EB%A6%AC%EC%98%A4%EB%A0%88%20%EC%9E%A5%EC%B6%A9%EB%8B%A8%EB%A1%9C%20263" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Hello apM（D1 備案）</b><div style="font-size:11px;color:#736C66;">헬로apM</div><div style="font-size:12px;">📞 <a href="tel:+82263881200">02-6388-1200</a></div><div style="font-size:12px;margin:2px 0;">週四 11:00–01:00，週二公休</div><a href="https://map.naver.com/p/search/%ED%97%AC%EB%A1%9CapM%20%EC%9E%A5%EC%B6%A9%EB%8B%A8%EB%A1%9C%20253" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%ED%97%AC%EB%A1%9CapM%20%EC%9E%A5%EC%B6%A9%EB%8B%A8%EB%A1%9C%20253" target="_blank" rel="noopener" class="ql">Google</a></div></details><details class="card" style="padding:14px 20px;"><summary>📍 安國／景福宮／鐘路 <span style="font-weight:normal;color:#736C66;font-size:12px;">（7 家）</span></summary><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">London Bagel Museum 安國店（D3 早餐）</b><div style="font-size:11px;color:#736C66;">런던 베이글 뮤지엄 안국 · 북촌로4길 20</div><div style="font-size:12px;margin:2px 0;">07:00–18:00，現場 CatchTable 登記外帶，早到較快</div><a href="https://map.naver.com/p/search/%EB%9F%B0%EB%8D%98%20%EB%B2%A0%EC%9D%B4%EA%B8%80%20%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%95%88%EA%B5%AD" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=London%20Bagel%20Museum%20Anguk&amp;query_place_id=ChIJKw66zRCjfDURuaw9qYPdI-k" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Artist Bakery 安國店</b><div style="font-size:11px;color:#736C66;">아티스트베이커리 안국</div><div style="font-size:12px;">📞 0507-1335-3478</div><div style="font-size:12px;margin:2px 0;">鹽可頌。D3 下午買隔天早餐，現場用 CatchTable 登記外帶</div><a href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">清水堂 益善洞</b><div style="font-size:11px;color:#736C66;">청수당 익선</div><div style="font-size:12px;">📞 0507-1318-8215</div><div style="font-size:12px;margin:2px 0;">抹茶舒芙蕾、滴濾冰咖啡</div><a href="https://map.naver.com/p/search/%EC%B2%AD%EC%88%98%EB%8B%B9%20%EC%9D%B5%EC%84%A0" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%B2%AD%EC%88%98%EB%8B%B9%20%EC%9D%B5%EC%84%A0" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">土俗村蔘雞湯</b><div style="font-size:11px;color:#736C66;">토속촌 삼계탕</div><div style="font-size:12px;">📞 <a href="tel:+8227377444">02-737-7444</a></div><div style="font-size:12px;margin:2px 0;">烏骨雞蔘雞湯、海鮮煎餅。越早到越好，行程排 11:45 入座</div><a href="https://map.naver.com/p/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">이여곰탕（D3 晚餐）</b><div style="font-size:11px;color:#736C66;">이여곰탕 종로</div><div style="font-size:12px;">📞 <a href="tel:+8227222794">02-722-2794</a></div><div style="font-size:12px;margin:2px 0;">牛骨湯配飯，平板點餐。週六 9:00–21:00</div><a href="https://map.naver.com/p/search/%EC%9D%B4%EC%97%AC%EA%B3%B0%ED%83%95%20%EC%A2%85%EB%A1%9C" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%EC%97%AC%EA%B3%B0%ED%83%95%20%EC%A2%85%EB%A1%9C" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">三峯陶潭刀削麵（備案）</b><div style="font-size:11px;color:#736C66;">삼봉도담 칼국수</div><div style="font-size:12px;">📞 050-71379-0443</div><div style="font-size:12px;margin:2px 0;">刀削麵、水芹菜煎餅。週六 11:00–15:00、17:00–22:00</div><a href="https://map.naver.com/p/search/%EC%82%BC%EB%B4%89%EB%8F%84%EB%8B%B4%20%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%82%BC%EB%B4%89%EB%8F%84%EB%8B%B4%20%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">景福宮</b><div style="font-size:11px;color:#736C66;">경복궁</div><div style="font-size:12px;">📞 <a href="tel:+82237003900">02-3700-3900</a></div><div style="font-size:12px;margin:2px 0;">穿韓服免門票</div><a href="https://map.naver.com/p/search/%EA%B2%BD%EB%B3%B5%EA%B6%81" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EB%B3%B5%EA%B6%81" target="_blank" rel="noopener" class="ql">Google</a></div></details><details class="card" style="padding:14px 20px;"><summary>📍 梨大／延南洞／弘大 <span style="font-weight:normal;color:#736C66;font-size:12px;">（7 家）</span></summary><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">육전국밥 弘大店（D4 午餐）</b><div style="font-size:11px;color:#736C66;">육전국밥 홍대점</div><div style="font-size:12px;">📞 <a href="tel:+8223362275">02-336-2275</a></div><div style="font-size:12px;margin:2px 0;">牛肉湯飯、肉餅，24H，桌上自助點餐</div><a href="https://map.naver.com/p/search/%EC%9C%A1%EC%A0%84%EA%B5%AD%EB%B0%A5%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9C%A1%EC%A0%84%EA%B5%AD%EB%B0%A5%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">豚壽百（備案）</b><div style="font-size:11px;color:#736C66;">돈수백</div><div style="font-size:12px;">📞 <a href="tel:+8223243131">02-324-3131</a></div><div style="font-size:12px;margin:2px 0;">釜山豬肉湯飯，24H，平價</div><a href="https://map.naver.com/p/search/%EB%8F%88%EC%88%98%EB%B0%B1" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8F%88%EC%88%98%EB%B0%B1" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">延南豬腳 1987（備案）</b><div style="font-size:11px;color:#736C66;">연남족발 1987</div><div style="font-size:12px;">📞 070-7760-1086</div><div style="font-size:12px;margin:2px 0;">豬腳、菜包肉。週日 12:00 起</div><a href="https://map.naver.com/p/search/%EC%97%B0%EB%82%A8%EC%A1%B1%EB%B0%9C%201987" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%97%B0%EB%82%A8%EC%A1%B1%EB%B0%9C%201987" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">江南麵屋 弘大店</b><div style="font-size:11px;color:#736C66;">강남면옥 홍대점</div><div style="font-size:12px;">📞 <a href="tel:+8223238881">02-323-8881</a></div><div style="font-size:12px;margin:2px 0;">燉牛排骨、水冷麵</div><a href="https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%EB%A9%B4%EC%98%A5%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B0%95%EB%82%A8%EB%A9%B4%EC%98%A5%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Cafe Skön</b><div style="font-size:11px;color:#736C66;">카페스콘</div><div style="font-size:12px;">📞 <a href="tel:+8223237071">02-323-7071</a></div><div style="font-size:12px;margin:2px 0;">檸檬蛋糕、手工司康</div><a href="https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%EC%8A%A4%EC%BD%98" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%B9%B4%ED%8E%98%EC%8A%A4%EC%BD%98" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">EPT 弘大旗艦店</b><div style="font-size:11px;color:#736C66;">이피티 홍대 플래그십스토어</div><div style="font-size:12px;">📞 <a href="tel:+8223326010">02-332-6010</a></div><div style="font-size:12px;margin:2px 0;">小白鞋、板鞋</div><a href="https://map.naver.com/p/search/%EC%9D%B4%ED%94%BC%ED%8B%B0%20%ED%99%8D%EB%8C%80%20%ED%94%8C%EB%9E%98%EA%B7%B8%EC%8B%AD%EC%8A%A4%ED%86%A0%EC%96%B4" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%ED%94%BC%ED%8B%B0%20%ED%99%8D%EB%8C%80%20%ED%94%8C%EB%9E%98%EA%B7%B8%EC%8B%AD%EC%8A%A4%ED%86%A0%EC%96%B4" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Blue Elephant 弘大店</b><div style="font-size:11px;color:#736C66;">블루엘리펀트 홍대</div><div style="font-size:12px;">📞 070-8833-2884</div><div style="font-size:12px;margin:2px 0;">平價墨鏡</div><a href="https://map.naver.com/p/search/%EB%B8%94%EB%A3%A8%EC%97%98%EB%A6%AC%ED%8E%80%ED%8A%B8%20%ED%99%8D%EB%8C%80" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B8%94%EB%A3%A8%EC%97%98%EB%A6%AC%ED%8E%80%ED%8A%B8%20%ED%99%8D%EB%8C%80" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Object 弘大店</b><div style="font-size:11px;color:#736C66;">오브젝트 홍대점</div><div style="font-size:12px;">📞 <a href="tel:+82231447738">02-3144-7738</a></div><div style="font-size:12px;margin:2px 0;">貼紙、文具、文創雜貨</div><a href="https://map.naver.com/p/search/%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%20%ED%99%8D%EB%8C%80%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">梨花女子大學</b><div style="font-size:11px;color:#736C66;">이화여자대학교</div><div style="font-size:12px;">📞 <a href="tel:+82232772114">02-3277-2114</a></div><div style="font-size:12px;margin:2px 0;">ECC 兩側銀杏與楓葉</div><a href="https://map.naver.com/p/search/%EC%9D%B4%ED%99%94%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9D%B4%ED%99%94%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90" target="_blank" rel="noopener" class="ql">Google</a></div></details><details class="card" style="padding:14px 20px;"><summary>📍 明洞／市廳／南大門／首爾站 <span style="font-weight:normal;color:#736C66;font-size:12px;">（8 家）</span></summary><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">王妃家 明洞第二店</b><div style="font-size:11px;color:#736C66;">왕비집 명동 2호점</div><div style="font-size:12px;">📞 <a href="tel:+82237891946">02-3789-1946</a></div><div style="font-size:12px;margin:2px 0;">韓牛里脊、調味牛排骨。2 樓，11:30–22:40。建議預約（CatchTable 或官網）；離 Olive Young 明洞旗艦店約 100 公尺</div><a href="https://map.naver.com/p/search/%EC%99%95%EB%B9%84%EC%A7%91%20%EB%AA%85%EB%8F%999%EA%B8%B8%2013" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Wangbijib%20Myeongdong%202nd%20store&amp;query_place_id=ChIJrZpXL3ajfDURTCDbNleIqNw" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">南大門刀削麵街</b><div style="font-size:11px;color:#736C66;">남대문시장 칼국수골목</div><div style="font-size:12px;">📞 <a href="tel:+8227532805">02-753-2805</a></div><div style="font-size:12px;margin:2px 0;">刀削麵組合</div><a href="https://map.naver.com/p/search/%EB%82%A8%EB%8C%80%EB%AC%B8%EC%8B%9C%EC%9E%A5%20%EC%B9%BC%EA%B5%AD%EC%88%98%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%82%A8%EB%8C%80%EB%AC%B8%EC%8B%9C%EC%9E%A5%20%EC%B9%BC%EA%B5%AD%EC%88%98%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">佳梅谷手工包子</b><div style="font-size:11px;color:#736C66;">가메골손왕만두 남대문본점</div><div style="font-size:12px;">📞 <a href="tel:+8227552569">02-755-2569</a></div><div style="font-size:12px;margin:2px 0;">辣味包子、鮮肉包子</div><a href="https://map.naver.com/p/search/%EA%B0%80%EB%A9%94%EA%B3%A8%EC%86%90%EC%99%95%EB%A7%8C%EB%91%90%20%EB%82%A8%EB%8C%80%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B0%80%EB%A9%94%EA%B3%A8%EC%86%90%EC%99%95%EB%A7%8C%EB%91%90%20%EB%82%A8%EB%8C%80%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">南大門蔬菜糖餅</b><div style="font-size:11px;color:#736C66;">남대문 야채호떡</div><div style="font-size:12px;">📞 010-3330-0583</div><div style="font-size:12px;margin:2px 0;">蔬菜糖餅、蜜糖餅</div><a href="https://map.naver.com/p/search/%EB%82%A8%EB%8C%80%EB%AC%B8%20%EC%95%BC%EC%B1%84%ED%98%B8%EB%96%A1" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%82%A8%EB%8C%80%EB%AC%B8%20%EC%95%BC%EC%B1%84%ED%98%B8%EB%96%A1" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Olive Young 明洞旗艦店</b><div style="font-size:11px;color:#736C66;">올리브영 명동 플래그십</div><div style="font-size:12px;">📞 <a href="tel:+8227365290">02-736-5290</a></div><div style="font-size:12px;margin:2px 0;">美妝，可護照退稅</div><a href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%20%EB%AA%85%EB%8F%99%20%ED%94%8C%EB%9E%98%EA%B7%B8%EC%8B%AD" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%20%EB%AA%85%EB%8F%99%20%ED%94%8C%EB%9E%98%EA%B7%B8%EC%8B%AD" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">樂天超市 首爾站店</b><div style="font-size:11px;color:#736C66;">롯데마트 서울역점</div><div style="font-size:12px;">📞 <a href="tel:+8223902500">02-390-2500</a></div><div style="font-size:12px;margin:2px 0;">零食伴手禮，提供紙箱打包</div><a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A7%88%ED%8A%B8%20%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%A1%AF%EB%8D%B0%EB%A7%88%ED%8A%B8%20%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">德壽宮石牆路</b><div style="font-size:11px;color:#736C66;">덕수궁 돌담길</div><div style="font-size:12px;">📞 <a href="tel:+8227719951">02-771-9951</a></div><div style="font-size:12px;margin:2px 0;">電話為德壽宮諮詢處；週一宮內休館</div><a href="https://map.naver.com/p/search/%EB%8D%95%EC%88%98%EA%B6%81%20%EB%8F%8C%EB%8B%B4%EA%B8%B8" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8D%95%EC%88%98%EA%B6%81%20%EB%8F%8C%EB%8B%B4%EA%B8%B8" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">貞洞展望台</b><div style="font-size:11px;color:#736C66;">정동전망대</div><div style="font-size:12px;">📞 <a href="tel:+82221331628">02-2133-1628</a></div><div style="font-size:12px;margin:2px 0;">開放時間請先在 Naver 確認</div><a href="https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A0%84%EB%A7%9D%EB%8C%80" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%A0%95%EB%8F%99%EC%A0%84%EB%A7%9D%EB%8C%80" target="_blank" rel="noopener" class="ql">Google</a></div></details><details class="card" style="padding:14px 20px;"><summary>📍 高陽（KINTEX／Starfield） <span style="font-weight:normal;color:#736C66;font-size:12px;">（3 家）</span></summary><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">KINTEX</b><div style="font-size:11px;color:#736C66;">킨텍스</div><div style="font-size:12px;">📞 <a href="tel:+82318108114">031-810-8114</a></div><div style="font-size:12px;margin:2px 0;">MEGAZOO 11/20–22。展館以官網為準</div><a href="https://map.naver.com/p/search/%ED%82%A8%ED%85%8D%EC%8A%A4" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%ED%82%A8%ED%85%8D%EC%8A%A4" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">AQUAFIELD 高陽</b><div style="font-size:11px;color:#736C66;">아쿠아필드 고양</div><div style="font-size:12px;">📞 <a href="tel:+823151734500">031-5173-4500</a></div><div style="font-size:12px;margin:2px 0;">汗蒸幕、足浴</div><a href="https://map.naver.com/p/search/%EC%95%84%EC%BF%A0%EC%95%84%ED%95%84%EB%93%9C%20%EA%B3%A0%EC%96%91" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%95%84%EC%BF%A0%EC%95%84%ED%95%84%EB%93%9C%20%EA%B3%A0%EC%96%91" target="_blank" rel="noopener" class="ql">Google</a></div><div style="padding:10px 0;border-top:1px solid #F3EDE2;"><b style="font-size:13px;">Starfield Goyang</b><div style="font-size:11px;color:#736C66;">스타필드 고양</div><div style="font-size:12px;">📞 1833-9001</div><div style="font-size:12px;margin:2px 0;">美食街</div><a href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%80%ED%95%84%EB%93%9C%20%EA%B3%A0%EC%96%91" target="_blank" rel="noopener" class="ql">Naver</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%8A%A4%ED%83%80%ED%95%84%EB%93%9C%20%EA%B3%A0%EC%96%91" target="_blank" rel="noopener" class="ql">Google</a></div></details>
+    </section>
+  </main>
+
+  <!-- BIG CARD MODAL OVERLAY -->
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-card">
+      <div id="modal-title" class="modal-title">景點名稱</div>
+      <div id="modal-kr" class="modal-kr">한글 이름</div>
+      <div id="modal-addr" class="modal-addr">주소 정보</div>
+      <p style="font-size:11px; color:#A85D38; margin-bottom:12px;">💡 기사님, 이 주소로 가주세요! (司機先生，請帶我去這裡！)</p>
+      <div style="display:flex;gap:8px;margin-bottom:10px;">
+        <a id="map-naver" target="_blank" rel="noopener" style="flex:1;padding:9px;border:1px solid #E8E2D8;border-radius:10px;font-size:13px;color:#A85D38;text-decoration:none;font-weight:bold;">Naver 地圖</a>
+        <a id="map-google" target="_blank" rel="noopener" style="flex:1;padding:9px;border:1px solid #E8E2D8;border-radius:10px;font-size:13px;color:#A85D38;text-decoration:none;font-weight:bold;">Google 地圖</a>
+      </div>
+      <button onclick="closeModal()" class="close-modal-btn">關閉大字卡 (Close)</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Tab switching function
+    function switchTab(tabId) {
+      // Hide all section tab contents
+      var contents = document.querySelectorAll('.tab-content');
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('active');
+      }
+      
+      // Deactivate all tab buttons
+      var buttons = document.querySelectorAll('.tab-btn');
+      for (var j = 0; j < buttons.length; j++) {
+        buttons[j].classList.remove('active');
+      }
+
+      // Activate current tab and button
+      var targetSection = document.getElementById('section-' + tabId);
+      var targetButton = document.getElementById('tab-' + tabId);
+      
+      if (targetSection) targetSection.classList.add('active');
+      if (targetButton) targetButton.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Modal driver card popup function
+    function showBigCard(title, krText, addrText) {
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-kr').innerText = krText;
+      document.getElementById('modal-addr').innerText = '📍 地址：' + addrText;
+      var q = encodeURIComponent(krText.replace(/\s*\(.*\)/, ''));
+      document.getElementById('map-naver').href = 'https://map.naver.com/p/search/' + q;
+      var qg = encodeURIComponent((krText.replace(/\s*\(.*\)/, '') + ' ' + addrText.replace(/\s*\(.*\)/, '')).trim());
+      document.getElementById('map-google').href = 'https://www.google.com/maps/search/?api=1&query=' + qg;
+      document.getElementById('modal-overlay').style.display = 'flex';
+    }
+
+    // Close Modal
+    function closeModal() {
+      document.getElementById('modal-overlay').style.display = 'none';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === document.getElementById('modal-overlay')) {
+        closeModal();
+      }
+    }
+
+    // Category Filter function for Korean Cards
+    function filterCards(category) {
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      for (var i = 0; i < filterBtns.length; i++) {
+        filterBtns[i].classList.remove('active');
+      }
+      event.target.classList.add('active');
+
+      var cards = document.querySelectorAll('.card-item');
+      for (var j = 0; j < cards.length; j++) {
+        if (category === 'all' || cards[j].getAttribute('data-cat') === category) {
+          cards[j].style.display = 'block';
+        } else {
+          cards[j].style.display = 'none';
+        }
+      }
+    }
+
+    window.addEventListener('beforeprint', function() {
+      document.querySelectorAll('details').forEach(function(d) { d.open = true; });
+    });
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
